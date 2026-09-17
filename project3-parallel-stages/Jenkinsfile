@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/REPLACE_WITH_YOUR_USERNAME/online-exam-system-cicd.git'
+                git branch: 'main', url: 'https://github.com/pratheebapari/online-exam-system-cicd.git'
             }
         }
 
