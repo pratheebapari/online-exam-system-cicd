@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'prod'], description: 'Select the deployment environment for the Online Exam System')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/REPLACE_WITH_YOUR_USERNAME/online-exam-system-cicd.git'
+            }
+        }
+
+        stage('Show Parameter') {
+            steps {
+                echo "Deploying Online Exam System to: ${params.ENVIRONMENT}"
+            }
+        }
+
+        stage('Build for Environment') {
+            steps {
+                echo "Building exam evaluation module for the ${params.ENVIRONMENT} environment..."
+            }
+        }
+    }
+}
